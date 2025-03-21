@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Box,
   AppBar,
   Toolbar,
   Typography,
@@ -82,64 +83,81 @@ function Header() {
       </AppBar>
 
       {/* Menu lateral para mobile */}
-      <Drawer anchor="left" open={menuOpen} onClose={toggleDrawer(false)} >
-        <List sx={{ width: 250, height: "100vh", background: "linear-gradient(135deg, #FFC1E3 30%, #FFD8B1 100%)", }}>
+      <Drawer anchor="left" open={menuOpen} onClose={toggleDrawer(false)}>
+        <Box
+          sx={{
+            width: 250,
+            height: "100vh",
+            background: "linear-gradient(135deg, #FFC1E3 30%, #FFD8B1 100%)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between", // Distribui espaço entre links e logo
+            alignItems: "center",
+            paddingBottom: "20px",
+          }}
+        >
+          {/* Lista de Links */}
+          <List sx={{ width: "100%" }}>
+            <ListItem
+              component={Link}
+              to="/"
+              onClick={toggleDrawer(false)}
+              sx={{
+                textDecoration: "none",
+                color: "black",
+                fontWeight: "bold",
+                fontSize: "1rem",
+                transition: "all 0.3s ease",
+                "&:hover": { color: "#8B008B" },
+              }}
+            >
+              <ListItemText primary="Home" />
+            </ListItem>
 
-          <ListItem
-            component={Link}
-            to="/"
-            onClick={toggleDrawer(false)}
-            sx={{
-              textDecoration: "none", // Remove estilo de link
-              color: "black",
-              fontWeight: "bold",
-              fontSize: "1rem",
-              transition: "all 0.3s ease",
-              "&:hover": {
-                color: "#8B008B", // Hover roxo
-              },
-            }}
-          >
-            <ListItemText primary="Home" />
-          </ListItem>
+            <ListItem
+              component={Link}
+              to="/trabalhos"
+              onClick={toggleDrawer(false)}
+              sx={{
+                textDecoration: "none",
+                color: "black",
+                fontWeight: "bold",
+                fontSize: "1rem",
+                transition: "all 0.3s ease",
+                "&:hover": { color: "#8B008B" },
+              }}
+            >
+              <ListItemText primary="Trabalhos" />
+            </ListItem>
 
-          <ListItem
-            component={Link}
-            to="/trabalhos"
-            onClick={toggleDrawer(false)}
-            sx={{
-              textDecoration: "none",
-              color: "black",
-              fontWeight: "bold",
-              fontSize: "1rem",
-              transition: "all 0.3s ease",
-              "&:hover": {
-                color: "#8B008B",
-              },
-            }}
-          >
-            <ListItemText primary="Trabalhos" />
-          </ListItem>
+            <ListItem
+              component={Link}
+              to="/contato"
+              onClick={toggleDrawer(false)}
+              sx={{
+                textDecoration: "none",
+                color: "black",
+                fontWeight: "bold",
+                fontSize: "1rem",
+                transition: "all 0.3s ease",
+                "&:hover": { color: "#8B008B" },
+              }}
+            >
+              <ListItemText primary="Contato" />
+            </ListItem>
+          </List>
 
-          <ListItem
-            component={Link}
-            to="/contato"
-            onClick={toggleDrawer(false)}
-            sx={{
-              textDecoration: "none",
-              color: "black",
-              fontWeight: "bold",
-              fontSize: "1rem",
-              transition: "all 0.3s ease",
-              "&:hover": {
-                color: "#8B008B",
-              },
-            }}
-          >
-            <ListItemText primary="Contato" />
-          </ListItem>
-        </List>
+          {/* Logo abaixo dos links */}
+          <Box sx={{ textAlign: "center", paddingBottom: "20px" }}>
+            <img
+              src="https://i.imgur.com/pTF0RAD.png" // Substitua pelo caminho correto da sua logo
+              alt="Logo Nathy Personalizados"
+              style={{ width: "200px" }} // Ajuste de tamanho e transparência
+            />
+          </Box>
+        </Box>
       </Drawer>
+
     </>
   );
 }

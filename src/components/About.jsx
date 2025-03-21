@@ -31,7 +31,7 @@ function Sobre() {
           backgroundSize: "100%", // Ajuste conforme necessário
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          opacity: 0.2, // Define a transparência
+          opacity: 0.1, // Define a transparência
           zIndex: 1, // Mantém a logo atrás do conteúdo
         }}
       />
