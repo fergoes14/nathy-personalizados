@@ -43,7 +43,7 @@ function Header() {
           {/* Ícone do menu hambúrguer no mobile */}
           <IconButton
             edge="start"
-            color="inherit"
+            color="black"
             aria-label="menu"
             sx={{ display: { xs: "block", md: "none" } }}
             onClick={toggleDrawer(true)}
@@ -82,29 +82,59 @@ function Header() {
       </AppBar>
 
       {/* Menu lateral para mobile */}
-      <Drawer anchor="left" open={menuOpen} onClose={toggleDrawer(false)}>
-        <List sx={{ width: 250 }}>
+      <Drawer anchor="left" open={menuOpen} onClose={toggleDrawer(false)} >
+        <List sx={{ width: 250, height: "100vh", background: "linear-gradient(135deg, #FFC1E3 30%, #FFD8B1 100%)", }}>
+
           <ListItem
-            button
             component={Link}
             to="/"
             onClick={toggleDrawer(false)}
+            sx={{
+              textDecoration: "none", // Remove estilo de link
+              color: "black",
+              fontWeight: "bold",
+              fontSize: "1rem",
+              transition: "all 0.3s ease",
+              "&:hover": {
+                color: "#8B008B", // Hover roxo
+              },
+            }}
           >
             <ListItemText primary="Home" />
           </ListItem>
+
           <ListItem
-            button
             component={Link}
             to="/trabalhos"
             onClick={toggleDrawer(false)}
+            sx={{
+              textDecoration: "none",
+              color: "black",
+              fontWeight: "bold",
+              fontSize: "1rem",
+              transition: "all 0.3s ease",
+              "&:hover": {
+                color: "#8B008B",
+              },
+            }}
           >
-            <ListItemText primary="Tabalhos" />
+            <ListItemText primary="Trabalhos" />
           </ListItem>
+
           <ListItem
-            button
             component={Link}
             to="/contato"
             onClick={toggleDrawer(false)}
+            sx={{
+              textDecoration: "none",
+              color: "black",
+              fontWeight: "bold",
+              fontSize: "1rem",
+              transition: "all 0.3s ease",
+              "&:hover": {
+                color: "#8B008B",
+              },
+            }}
           >
             <ListItemText primary="Contato" />
           </ListItem>
